@@ -66,7 +66,8 @@
         <br>
         <br>
         <label>
-        <input type="radio" id="ruido" name="ruido"></input><br>
+        <input type="radio" id="ruido" name="ruido" placeholder="Ruido"></input><br>
+        ruido
         </label><br>
         <label>Periodicidade:</label><br>
         <input id="pedRuido" name="pedRuido"></input>
@@ -102,8 +103,7 @@
             doc.text("Funcionários / Função: " + document.getElementById("funcionarios3").value, 10, 170);
             doc.text("Atividades: " + document.getElementById("atividades3").value, 10, 180);
             doc.text("Máquinas e equipamentos do setor: " + document.getElementById("maq_e_equip").value, 10, 190);
-            doc.text("Ruído " + document.getElementById("ruido").value, 10, 150);
-            doc.text("Atividades: " + document.getElementById("pedRuido").value, 10, 160);
+            doc.text("Ruído " + document.getElementById("ruido").value, 10, 200);
             
             // Salva o arquivo PDF
             doc.save("formulario.pdf");
