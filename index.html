@@ -25,9 +25,6 @@
         <label>Pé direito:</label><br>
         <input type="number" id="pé_direito" name="pé_direito">
         <br><br>
-        <label>Lux:</label><br>
-        <input type="number" id="lux" name="lux">
-        <br><br>
         <label>Piso:</label><br>
         <input type="text" id="piso" name="piso">
         <br><br>
@@ -68,17 +65,12 @@
         <textarea name="maq_e_equip" id="maq_e_equip" cols="30" rows="10"></textarea>
         <br>
         <br>
-        <label>Riscos Físicos:</label><br>
-        <textarea name="riscos_fisicos" id="riscos_fisicos" cols="50" rows="5"></textarea>
-        <br>
-        <br>
-        <label>Riscos Químicos:</label><br>
-        <textarea name="riscos_quimicos" id="riscos_quimicos" cols="50" rows="5"></textarea>
-        <br>
-        <br>
-        <label>Riscos Biológicos:</label><br>
-        <textarea name="riscos_biologicos" id="riscos_biologicos" cols="50" rows="5"></textarea>
-        <br>
+        <label>
+        <input type="radio" id="ruido" name="ruido"></input><br>
+        </label><br>
+        <label>Periodicidade:</label><br>
+        <input id="pedRuido" name="pedRuido"></input>
+        <br><br>
 
         <button onclick="gerarPDF()"><b>Gerar relatório</b></button>
     </form>
@@ -91,7 +83,7 @@
             var area = cumprimento * largura;
 
             // Adiciona o conteúdo do formulário ao PDF
-            doc.text("Nome: " + document.getElementById("empresa").value, 10, 10);
+            doc.text("Empresa: " + document.getElementById("empresa").value, 10, 10);
             doc.text("Setor: " + document.getElementById("setor").value, 10, 20);    
             doc.text("Área: " + area + " Metros", 10, 30);
             doc.text("Pé direito: " + document.getElementById("pé_direito").value, 10, 40);
@@ -110,7 +102,8 @@
             doc.text("Funcionários / Função: " + document.getElementById("funcionarios3").value, 10, 170);
             doc.text("Atividades: " + document.getElementById("atividades3").value, 10, 180);
             doc.text("Máquinas e equipamentos do setor: " + document.getElementById("maq_e_equip").value, 10, 190);
-
+            doc.text("Ruído " + document.getElementById("ruido").value, 10, 150);
+            doc.text("Atividades: " + document.getElementById("pedRuido").value, 10, 160);
             
             // Salva o arquivo PDF
             doc.save("formulario.pdf");
