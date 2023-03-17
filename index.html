@@ -65,46 +65,78 @@
         <textarea name="maq_e_equip" id="maq_e_equip" cols="30" rows="10"></textarea>
         <br>
         <br>
-        <label>
-        <input type="radio" id="ruido" name="ruido" placeholder="Ruido"></input><br>
-        ruido
-        </label><br>
-        <label>Periodicidade:</label><br>
-        <input id="pedRuido" name="pedRuido"></input>
-        <br><br>
+        <label>Ruido:</label>
+        <input type="radio" id="opcao1" name="opcoes" value="opcao1" onchange="verificarRuido()">Opção 1
+        <input type="radio" id="opcao2" name="opcoes" value="opcao2" onchange="verificarRuido()">Opção 2
+        <p id="texto-condicional"></p>
+
 
         <button onclick="gerarPDF()"><b>Gerar relatório</b></button>
     </form>
     <script>
-        function gerarPDF() {
-            // Cria um novo objeto jsPDF
-            var doc = new jspdf.jsPDF();
-            var cumprimento = parseFloat(document.getElementById("cumprimento").value);
-            var largura = parseFloat(document.getElementById("largura").value);
-            var area = cumprimento * largura;
+        function verificarRuido() {
+            var opcao1 = document.getElementById("opcao1");
+            var opcao2 = document.getElementById("opcao2");
+            var textoCondicional = document.getElementById("texto-condicional");
+            
+            if (opcao1.checked) {
+                textoCondicional.innerHTML = "Opção 1 selecionada.";
+            } else if (opcao2.checked) {
+                textoCondicional.innerHTML = "Opção 2 selecionada.";
+            } else {
+                textoCondicional.innerHTML = "";
+            }
+            }
 
-            // Adiciona o conteúdo do formulário ao PDF
-            doc.text("Empresa: " + document.getElementById("empresa").value, 10, 10);
-            doc.text("Setor: " + document.getElementById("setor").value, 10, 20);    
-            doc.text("Área: " + area + " Metros", 10, 30);
-            doc.text("Pé direito: " + document.getElementById("pé_direito").value, 10, 40);
-            doc.text("Piso: " + document.getElementById("piso").value, 10, 60);
-            doc.text("Estrutura: " + document.getElementById("estrutura").value, 10, 70);
-            doc.text("Forro: " + document.getElementById("forro").value, 10, 80);
-            doc.text("Iluminação natural: " + document.getElementById("iluminação_natural").value, 10, 90);
-            doc.text("Iluminação artificial: " + document.getElementById("iluminação_artificial").value, 10, 100);
-            doc.text("Ventilação natural: " + document.getElementById("ventilador_natural").value, 10, 110);
-            doc.text("Ventilação artificial: " + document.getElementById("ventilador_artificial").value, 10, 120);
-            
-            doc.text("Funcionários / Função: " + document.getElementById("funcionarios1").value, 10, 130);
-            doc.text("Atividades: " + document.getElementById("atividades1").value, 10, 140);
-            doc.text("Funcionários / Função: " + document.getElementById("funcionarios2").value, 10, 150);
-            doc.text("Atividades: " + document.getElementById("atividades2").value, 10, 160);
-            doc.text("Funcionários / Função: " + document.getElementById("funcionarios3").value, 10, 170);
-            doc.text("Atividades: " + document.getElementById("atividades3").value, 10, 180);
-            doc.text("Máquinas e equipamentos do setor: " + document.getElementById("maq_e_equip").value, 10, 190);
-            doc.text("Ruído " + document.getElementById("ruido").value, 10, 200);
-            
+            function gerarPDF() {
+                // Cria um novo objeto jsPDF
+                var doc = new jspdf.jsPDF();
+                var cumprimento = parseInt(document.getElementById("cumprimento").value);
+                var largura = parseInt(document.getElementById("largura").value);
+                var area = cumprimento * largura;
+                var textoCondicional = document.getElementById('texto-condicional');
+
+                // Adiciona o conteúdo do formulário ao PDF
+                doc.text("Empresa: " + document.getElementById("empresa").value, 10, 10);
+                doc.text("Setor: " + document.getElementById("setor").value, 10, 20);
+                doc.text("Área: " + area + " m²", 10, 30);
+                doc.text("Pé direito: " + document.getElementById("pé_direito").value + " m", 10, 40);
+                doc.text("Piso: " + document.getElementById("piso").value, 10, 50);
+                doc.text("Estrutura: " + document.getElementById("estrutura").value, 10, 60);
+                doc.text("Forro: " + document.getElementById("forro").value, 10, 70);
+                doc.text("Iluminação natural: " + document.getElementById("iluminação_natural").value, 10, 80);
+                doc.text("Iluminação artificial: " + document.getElementById("iluminação_artificial").value, 10, 90);
+                doc.text("Ventilador natural: " + document.getElementById("ventilador_natural").value, 10, 100);
+                doc.text("Ventilador artificial: " + document.getElementById("ventilador_artificial").value, 10, 110);
+                doc.text("Funcionários / Funções: " + document.getElementById("funcionarios1").value + " / " + document.getElementById("atividades1").value, 10, 120);
+                doc.text("Funcionários / Funções: " + document.getElementById("funcionarios2").value + " / " + document.getElementById("atividades2").value, 10, 130);
+                doc.text("Funcionários / Funções: " + document.getElementById("funcionarios3").value + " / " + document.getElementById("atividades3").value, 10, 140);
+                doc.text("Máquinas e equipamentos / Lux: " + document.getElementById("maq_e_equip").value, 10, 150);
+                doc.text("Ruido: " + textoCondicional.innerHTML, 10, 160);
+
+
+            // Adiciona um manipulador de eventos aos botões de opção
+            var opcao1 = document.getElementById("opcao1");
+            opcao1.addEventListener("click", function() {
+            // Define o estilo do elemento HTML do texto condicional
+            var textoCondicional = document.getElementById('texto-condicional');
+            textoCondicional.style.display = "block";
+            });
+
+            var opcao2 = document.getElementById("opcao2");
+            opcao2.addEventListener("click", function() {
+            // Define o estilo do elemento HTML do texto condicional
+            var textoCondicional = document.getElementById('texto-condicional');
+            textoCondicional.style.display = "none";
+            });
+
+            // Adiciona o texto condicional ao PDF se o estilo do elemento HTML for diferente de "none"
+            var textoCondicional = document.getElementById('texto-condicional');
+            if (textoCondicional.style.display !== "none") {
+            doc.text("Nível de ruído: " + document.getElementById("nivel-de-ruido").value, 10, 70);
+            }
+
+
             // Salva o arquivo PDF
             doc.save("formulario.pdf");
         }
