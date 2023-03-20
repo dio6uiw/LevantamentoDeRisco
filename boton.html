@@ -17,7 +17,7 @@
         <input type="text" id="setor" name="setor">
         <br><br>
 
-        <label>Cumprimento:</label><br>
+        <label>Comprimento:</label><br>
         <input type="number" id="cumprimento" name="cumprimento">
         <br><br>
 
@@ -81,27 +81,29 @@
         <input id="atividades4" name="atividades4"></input>
         <br><br>
 
+        <label>Máquinas e equipamentos do setor / Lux:</label><br>
+        <textarea name="maq" id="maq" cols="50" rows="10"></textarea><br><br>
+
         <label>Ruído:</label><br>
         <input type="radio" name="ruido" value="ruidosim" > Sim
         <input type="radio" name="ruido" value="ruidonao" checked> Não<br><br>
-        <label>Periodicidade:</label>
-        <input id="perRuido" name="perRuido"></input><br><br>
-
-        <label>Calor:</label><br>
-        <input type="radio" name="calor" value="calorsim" > Sim
-        <input type="radio" name="calor" value="calornao" checked> Não<br><br>
-        <label>Periodicidade:</label>
-        <input id="perCalor" name="perCalor"></input><br>
+        <label>Exposição:</label><br>
+        <input type="radio" name="exposicaoR" value="Habitual Permanente" > habitual Permanente <br>
+        <input type="radio" name="exposicaoR" value="Habitual Intermitente" > habitual Intermitente<br>
+        <input type="radio" name="exposicaoR" value="Ocasional" > Ocasional<br><br>
         <label>Fonte geradora:</label>
-        <input id="fonteCalor" name="fonteCalor"></input><br><br>
-
+        <input id="fonteRuido" name="fonteRuido"></input><br><br>
+        
         <label>Radiação ionizante:</label><br>
         <input type="radio" name="radion" value="radionsim" > Sim
-        <input type="radio" name="radion" value="radionnao" checked> Não<br>
-        <label>Periodicidade:</label>
-        <input id="perRadIon" name="perRadIon"></input><br>
+        <input type="radio" name="radion" value="radionnao" checked> Não<br><br>
+        <label>Exposição:</label><br>
+        <input type="radio" name="exposicaoRI" value="Habitual Permanente" > habitual Permanente <br>
+        <input type="radio" name="exposicaoRI" value="Habitual Intermitente" > habitual Intermitente<br>
+        <input type="radio" name="exposicaoRI" value="Ocasional" > Ocasional<br><br>
         <label>Fonte geradora:</label>
         <input id="fonteRadIon" name="fonteRadIon"></input><br><br>
+
 
         <button onclick="gerarPDF()">Gerar PDF</button>
     </form>      
@@ -110,9 +112,10 @@
         function gerarPDF() {
         // Obter o valor do elemento de rádio selecionado
         var ruido = document.querySelector('input[name="ruido"]:checked').value;
-        var calor = document.querySelector('input[name="calor"]:checked').value;
-        var radion = document.querySelector('input[name="radion"]:checked').value;
+        var exposicaoR = document.querySelector('input[name="exposicaoR"]:checked').value;
 
+        var radion = document.querySelector('input[name="radion"]:checked').value;
+        var exposicaoRI = document.querySelector('input[name="exposicaoRI"]:checked').value;
 
         // Criar um novo objeto jsPDF
         var doc = new jsPDF();
@@ -134,35 +137,26 @@
         doc.text("Funcionários / Funções: " + document.getElementById("funcionarios1").value + " Atividades " + document.getElementById("atividades1").value, 10, 120);
         doc.text("Funcionários / Funções: " + document.getElementById("funcionarios2").value + " Atividades " + document.getElementById("atividades2").value, 10, 130);
         doc.text("Funcionários / Funções: " + document.getElementById("funcionarios3").value + " Atividades " + document.getElementById("atividades3").value, 10, 140);
+        
         //ruido
         if (ruido === 'ruidosim') {
-            doc.text('Considerar ruído', 10, 150);
+            doc.text('Considerar Ruído', 10, 150);
+            doc.text('Exposição: ' + exposicaoR, 10, 160);
+            doc.text('Fonte geradora: ' + document.getElementById("fonteRuido").value, 10, 165);
         } else {
-            doc.text('Não considerar ruído', 10, 150);
+            doc.text('Não considerar Ruido', 10, 150);
         }
-        doc.text(document.getElementById("perRuido").value, 80, 150);
-
-        //calor
-        if (calor === 'calorsim') {
-            doc.text('Considerar calor', 10, 160);
-        } else {
-            doc.text('Não considerar calor', 10, 160);
-        }
-        doc.text(document.getElementById("perCalor").value, 110, 160);
-        doc.text(document.getElementById("fonteCalor").value, 150, 160);
-
 
         //radiação ionizante
         if (radion === 'radionsim') {
             doc.text('Considerar Radiação Ionizante', 10, 170);
-            doc.text('Periodicidade: ' + document.getElementById("perRadIon").value, 110, 170);
-            doc.text('Fonte geradora: ' + document.getElementById("fonteRadIon").value, 10, 180);
+            doc.text('Exposição: ' + exposicaoRI, 10, 180);
+            doc.text('Fonte geradora: ' + document.getElementById("fonteRadIon").value, 10, 190);
         } else {
             doc.text('Não considerar Radiação Ionizante', 10, 170);
         }
-
         // Salvar o PDF
-        doc.save('arquivo.pdf');
+        doc.save('.pdf');
         }
     </script>
 </body>
