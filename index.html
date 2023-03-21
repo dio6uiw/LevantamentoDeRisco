@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="gerarRelatorio.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+</head>
+<body>
+    <form>
+        <label>Empresa:</label><br>
+        <input type="text" id="empresa" name="empresa">
+        <br><br>
+
+        <label>Setor:</label><br>
+        <input type="text" id="setor" name="setor">
+        <br><br>
+
+        <label>Comprimento:</label><br>
+        <input type="number" id="cumprimento" name="cumprimento">
+        <br><br>
+
+        <label>Largura:</label><br>
+        <input type="number" id="largura" name="largura">
+        <br><br>
+
+        <label>Pé direito:</label><br>
+        <input type="number" id="pé_direito" name="pé_direito">
+        <br><br>
+
+        <label>Piso:</label><br>
+        <input type="text" id="piso" name="piso">
+        <br><br>
+
+        <label>Estrutura:</label><br>
+        <input type="text" id="estrutura" name="estrutura">
+        <br><br>
+
+        <label>Forro:</label><br>
+        <input type="text" id="forro" name="forro">
+        <br><br>
+
+        <label>Iluminação natural:</label><br>
+        <input type="text" id="iluminação_natural" name="iluminação_natural">
+        <br><br>
+
+        <label>Iluminação artificial:</label><br>
+        <input type="text" id="iluminação_artificial" name="iluminação_artificial">
+        <br><br>
+
+        <label>Ventilação natural:</label><br>
+        <input type="text" id="ventilador_natural" name="ventilador_natural">
+        <br><br>
+
+        <label>Ventilação artificial:</label><br>
+        <input type="text" id="ventilador_artificial" name="ventilador_artificial">
+        <br><br>
+
+        <label>Funcionários / Funções:</label><br>
+        <input id="funcionarios1" name="funcionarios1"></input><br>
+        <label>Atividades:</label><br>
+        <input id="atividades1" name="atividades1"></input>
+        <br><br>
+
+        <label>Funcionários / Funções:</label><br>
+        <input id="funcionarios2" name="funcionarios2"></input><br>
+        <label>Atividades:</label><br>
+        <input id="atividades2" name="atividades2"></input>
+        <br><br>
+
+        <label>Funcionários / Funções:</label><br>
+        <input id="funcionarios3" name="funcionarios3"></input><br>
+        <label>Atividades:</label><br>
+        <input id="atividades3" name="atividades3"></input>
+        <br><br>
+
+        <label>Funcionários / Funções:</label><br>
+        <input id="funcionarios4" name="funcionarios4"></input><br>
+        <label>Atividades:</label><br>
+        <input id="atividades4" name="atividades4"></input>
+        <br><br>
+
+        <label>Máquinas e equipamentos do setor / Lux:</label><br>
+        <textarea name="maq" id="maq" cols="50" rows="10"></textarea><br><br>
+
+        <label>Ruído:</label><br>
+        <input type="radio" name="ruido" value="ruidosim" > Sim
+        <input type="radio" name="ruido" value="ruidonao" checked> Não<br><br>
+        <label>Exposição:</label><br>
+        <input type="radio" name="exposicaoR" value="Habitual Permanente" > habitual Permanente <br>
+        <input type="radio" name="exposicaoR" value="Habitual Intermitente" > habitual Intermitente<br>
+        <input type="radio" name="exposicaoR" value="Ocasional" > Ocasional<br><br>
+        <label>Fonte geradora:</label>
+        <input id="fonteRuido" name="fonteRuido"></input><br><br>
+
+        <label>Radiação não ionizante:</label><br>
+        <input type="radio" name="radiacaonaoion" value="radiacaoNaoIonsim">Sim
+        <input type="radio" name="radiacaonaoion" value="radiacaoNaoIonnao" checked>Não<br>
+        <label>Exposição:</label><br>
+        <input type="radio" name="exposicaoRadNaoIon" value="Habitual Permanente" > habitual Permanente <br>
+        <input type="radio" name="exposicaoRadNaoIon" value="Habitual Intermitente" > habitual Intermitente<br>
+        <input type="radio" name="exposicaoRadNaoIon" value="Ocasional" > Ocasional<br>
+        <label>Fonte geradora:</label>
+        <input id="fonteRadiacaoNaoIon" name="fonteRadiacaoNaoIon"></input><br><br>
+
+        <label>Radiação ionizante:</label><br>
+        <input type="radio" name="radion" value="radionsim" > Sim
+        <input type="radio" name="radion" value="radionnao" checked> Não<br><br>
+        <label>Exposição:</label><br>
+        <input type="radio" name="exposicaoRI" value="Habitual Permanente" > habitual Permanente <br>
+        <input type="radio" name="exposicaoRI" value="Habitual Intermitente" > habitual Intermitente<br>
+        <input type="radio" name="exposicaoRI" value="Ocasional" > Ocasional<br><br>
+        <label>Fonte geradora:</label>
+        <input id="fonteRadIon" name="fonteRadIon"></input><br><br>
+
+        <button onclick="gerarPDF()">Gerar PDF</button>
+    </form>      
+</body>
+</html>
