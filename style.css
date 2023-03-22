@@ -1,14 +1,111 @@
 html{
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(216, 216, 216);
+    background-color: rgb(233, 233, 233);
 }
 
 label{
-    font-size: 14px;
+    font-size: 16px;
     color: black;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
+}
+
+#empresa{
+    width: 90%;
+}
+
+#setor{
+    width: 90%;
+}
+
+#cumprimento{
+    width: 90%;
+}
+
+#largura{
+    width: 90%;
+}
+
+#pé_direito{
+    width: 90%;
+}
+
+#piso{
+    width: 90%;
+}
+
+#estrutura{
+    width: 90%;
+}
+
+#forro{
+    width: 90%;
+}
+
+#iluminação_natural{
+    width: 90%;
+}
+
+#iluminação_artificial{
+    width: 90%;
+}
+
+#ventilador_natural{
+    width: 90%;
+}
+
+#ventilador_artificial{
+    width: 90%;
+}
+
+#funcionarios1{
+    width: 90%;
+}
+
+#atividades1{
+    width: 90%;
+}
+
+#funcionarios2{
+    width: 90%;
+}
+
+#atividades2{
+    width: 90%;
+}
+
+#funcionarios3{
+    width: 90%;
+}
+
+#atividades3{
+    width: 90%;
+}
+
+#funcionarios4{
+    width: 90%;
+}
+
+#atividades4{
+    width: 90%;
+}
+
+h1{
+    padding-top: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 23px;
+    color: green;
+}
+
+button{
+    background-color: green;
+    width: 200px;
+    height: 50px;
+    color: white;
+}
+
+input{
+    background-color: rgb(247, 247, 247);
 }

@@ -10,8 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
 </head>
 <body>
-    <H2>LEVANTAMENTO DE RISCO</H2>
-    <img src="" alt="">
+    <h1>LEVANTAMENTO DE RISCOS</h1>
     <form>
         <label>Empresa:</label><br>
         <input type="text" id="empresa" name="empresa">
@@ -86,19 +85,19 @@
         <br><br>
 
         <label>Máquinas e equipamentos do setor / Lux:</label><br>
-        <textarea name="myTextarea" id="myTextarea" cols="30" rows="10"></textarea><br><br>
-
+        <textarea name="myTextarea" id="myTextarea" cols="40" rows="10"></textarea><br><br>
+        <hr>
         <label>Ruído:</label><br>
         <input type="radio" name="ruido" value="ruidosim" > Sim
-        <input type="radio" name="ruido" value="ruidonao" checked> Não<br>
+        <input type="radio" name="ruido" value="ruidonao" checked> Não<br><br>
         <label> Exposição:</label><br>
         <input type="radio" name="exposicaoR" value="Habitual Permanente" > Habitual Permanente <br>
         <input type="radio" name="exposicaoR" value="Habitual Intermitente" > Habitual Intermitente<br>
         <input type="radio" name="exposicaoR" value="Ocasional" > Ocasional<br>
-        <input type="radio" style="display: none" name="exposicaoR" value="Não exposto" checked>
-        <label>Fonte geradora:</label><br>
+        <input type="radio" style="display: none" name="exposicaoR" value="Não exposto" checked><br>
+        <label>Fonte geradora:</label>
         <input id="fonteRuido" name="fonteRuido"></input><br><br>
-
+        <hr>
         <label>Radiação não ionizante:</label><br>
         <input type="radio" name="radiacaonaoion" value="radiacaoNaoIonsim">Sim
         <input type="radio" name="radiacaonaoion" value="radiacaoNaoIonnao" checked>Não<br>
@@ -106,9 +105,10 @@
         <input type="radio" name="exposicaoRadNaoIon" value="Habitual Permanente" > habitual Permanente <br>
         <input type="radio" name="exposicaoRadNaoIon" value="Habitual Intermitente" > habitual Intermitente<br>
         <input type="radio" name="exposicaoRadNaoIon" value="Ocasional" > Ocasional<br>
-        <input type="radio" style="display: none" name="exposicaoRadNaoIon" value="Não exposto" checked>
-        <label>Fonte geradora:</label><br>
+        <input type="radio" style="display: none" name="exposicaoRadNaoIon" value="Não exposto" checked><br>
+        <label>Fonte geradora:</label>
         <input id="fonteRadiacaoNaoIon" name="fonteRadiacaoNaoIon"></input><br><br>
+        <hr>
 
         <label>Radiação ionizante:</label><br>
         <input type="radio" name="radion" value="radionsim" > Sim
@@ -120,6 +120,7 @@
         <input type="radio" style="display: none" name="exposicaoRI" value="Não exposto" checked><br>
         <label>Fonte geradora:</label>
         <input id="fonteRadIon" name="fonteRadIon"></input><br><br>
+        <hr>
 
         <label>Vibração:</label><br>
         <input type="radio" name="vibracao" value="vibracaosim" > Sim
@@ -131,6 +132,7 @@
         <input type="radio" style="display: none" name="exposicaoV" value="Não exposto" checked><br>
         <label>Fonte geradora:</label>
         <input id="fonteVibracao" name="fonteVibracao"></input><br><br>
+        <hr>
 
         <label>Frio:</label><br>
         <input type="radio" name="frio" value="friosim" > Sim
@@ -142,6 +144,7 @@
         <input type="radio" style="display: none" name="exposicaoF" value="Não exposto" checked><br>
         <label>Fonte geradora:</label>
         <input id="fonteFrio" name="fonteFrio"></input><br><br>
+        <hr>
 
         <label>Calor:</label><br>
         <input type="radio" name="calor" value="calorsim" > Sim
@@ -153,6 +156,7 @@
         <input type="radio" style="display: none" name="exposicaoC" value="Não exposto" checked><br>
         <label>Fonte geradora:</label>
         <input id="fonteCalor" name="fonteCalor"></input><br><br>
+        <hr>
 
         <label>Umidade:</label><br>
         <input type="radio" name="umidade" value="umidadesim" > Sim
@@ -164,6 +168,7 @@
         <input type="radio" style="display: none" name="exposicaoU" value="Não exposto" checked><br>
         <label>Fonte geradora:</label>
         <input id="fonteUmidade" name="fonteUmidade"></input><br><br>
+        <hr>
 
         <label>Poeira:</label><br>
         <input type="radio" name="poeira" value="poeirasim" > Sim
@@ -175,6 +180,7 @@
         <input type="radio" style="display: none" name="exposicaoP" value="Não exposto" checked><br>
         <label>Fonte geradora:</label>
         <input id="fontePoeira" name="fontePoeira"></input><br><br>
+        <hr>
 
         <label>Fumos:</label><br>
         <input type="radio" name="fumos" value="fumossim" > Sim
@@ -186,6 +192,7 @@
         <input type="radio" style="display: none" name="exposicaoFumos" value="Não exposto" checked><br>
         <label>Fonte geradora:</label>
         <input id="fonteFumos" name="fonteFumos"></input><br><br>
+        <hr>
 
         <label>Gases:</label><br>
         <input type="radio" name="gases" value="gasessim" > Sim
@@ -197,6 +204,7 @@
         <input type="radio" style="display: none" name="exposicaoG" value="Não exposto" checked><br>
         <label>Fonte geradora:</label>
         <input id="fonteGases" name="fonteGases"></input><br><br>
+        <hr>
 
         <label>Biológico:</label><br>
         <input type="radio" name="biologico" value="biologicosim" > Sim
@@ -208,6 +216,7 @@
         <input type="radio" style="display: none" name="exposicaoB" value="Não exposto" checked><br>
         <label>Fonte geradora:</label>
         <input id="fonteBiologico" name="fonteBiologico"></input><br><br>
+        <hr>
 
         <label>Levantamento e transporte manual de peso:</label><br>
         <input type="radio" name="transportedepeso" value="transportedepesosim" > Sim
@@ -219,14 +228,17 @@
         <input type="radio" style="display: none" name="exposicaoLET" value="Não exposto" checked><br>
         <label>Fonte geradora:</label>
         <input id="fontetransportedepeso" name="fontetransportedepeso"></input><br><br>
+        <hr>
 
         <label>Observações sobre os riscos</label><br>
         <textarea name="obsriscos" id="obsriscos" cols="40" rows="5"></textarea><br><br>
+        <hr>
 
         <label>Existe controle de EPI?</label>
         <input type="radio" name="controleEPI" value="controlesim" > Sim
         <input type="radio" name="controleEPI" value="controlenao" checked> Não<br><br>
-        
+        <hr>
+
         <label>Rota de fuga:</label>
         <input type="radio" name="rotadefuga" value="rotadefugasim" > Existe
         <input type="radio" name="rotadefuga" value="rotadefuganao" checked> Não existe<br><br>
@@ -242,7 +254,8 @@
         <label>Extintores:</label>
         <input type="radio" name="extintores" value="extintoressim" > Existe
         <input type="radio" name="extintores" value="extintoresnao" checked> Não existe<br><br>
-        
+        <br>
+        <br>
         <button onclick="gerarPDF()">Gerar PDF</button>
     </form>
 </body>
