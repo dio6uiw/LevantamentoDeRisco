@@ -55,6 +55,12 @@ function gerarPDF() {
     var queda = document.querySelector('input[name="queda"]:checked').value;
     var exposicaoqueda = document.querySelector('input[name="exposicaoqueda"]:checked').value;
 
+    var altura = document.querySelector('input[name="altura"]:checked').value;
+    var exposicaoaltura = document.querySelector('input[name="exposicaoaltura"]:checked').value;
+
+    var espacoconfinado = document.querySelector('input[name="espacoconfinado"]:checked').value;
+    var exposicaoespacoconfinado = document.querySelector('input[name="exposicaoespacoconfinado"]:checked').value;
+
     // Criar um novo objeto jsPDF
     var doc = new jsPDF();
     var cumprimento = parseInt(document.getElementById("cumprimento").value);
@@ -229,30 +235,49 @@ function gerarPDF() {
 
     //Eletricidade
     if (eletricidade === 'eletricidadesim') {
-        doc.text('Considerar eletricidade', 10, 70);
-        doc.text('Exposição: ' + exposicaoeletricidade, 10, 75);
-        doc.text('Fonte geradora: ' + document.getElementById("fonteletricidade").value, 10, 80);
+        doc.text('Considerar eletricidade', 10, 140);
+        doc.text('Exposição: ' + exposicaoeletricidade, 10, 145);
+        doc.text('Fonte geradora: ' + document.getElementById("fonteletricidade").value, 10, 150);
     } else {
-        doc.text('Não considerar eletricidade', 10, 70);
+        doc.text('Não considerar eletricidade', 10, 140);
     }
 
     //Incêndio
     if (incendio === 'incendiosim') {
-        doc.text('Considerar risco de incêndio ou explosão', 10, 70);
-        doc.text('Exposição: ' + exposicaoincendio, 10, 75);
-        doc.text('Fonte geradora: ' + document.getElementById("fonteincendio").value, 10, 80);
+        doc.text('Considerar risco de incêndio ou explosão', 10, 160);
+        doc.text('Exposição: ' + exposicaoincendio, 10, 165);
+        doc.text('Fonte geradora: ' + document.getElementById("fonteincendio").value, 10, 170);
     } else {
-        doc.text('Não considerar risco de incêndio ou explosão', 10, 70);
+        doc.text('Não considerar risco de incêndio ou explosão', 10, 160);
     }
 
     //queda de materiais 
     if (queda === 'quedasim') {
-        doc.text('Considerar queda de materiais', 10, 70);
-        doc.text('Exposição: ' + exposicaoqueda, 10, 75);
-        doc.text('Fonte geradora: ' + document.getElementById("fontequeda").value, 10, 80);
+        doc.text('Considerar queda de materiais', 10, 180);
+        doc.text('Exposição: ' + exposicaoqueda, 10, 185);
+        doc.text('Fonte geradora: ' + document.getElementById("fontequeda").value, 10, 190);
     } else {
-        doc.text('Não considerar queda de materiais', 10, 70);
+        doc.text('Não considerar queda de materiais', 10, 180);
     }
+
+    //trabalho em altura 
+    if (altura === 'alturasim') {
+        doc.text('Considerar trabalho em altura', 10, 200);
+        doc.text('Exposição: ' + exposicaoaltura, 10, 205);
+        doc.text('Fonte geradora: ' + document.getElementById("fontealtura").value, 10, 210);
+    } else {
+        doc.text('Não considerar trabalho em altura', 10, 200);
+    }
+
+    //espaço confinado
+    if (espacoconfinado === 'espacoconfinadosim') {
+        doc.text('Considerar espaço confinado', 10, 220);
+        doc.text('Exposição: ' + exposicaoespacoconfinado, 10, 225);
+        doc.text('Fonte geradora: ' + document.getElementById("fonteespacoconfinado").value, 10, 230);
+    } else {
+        doc.text('Não considerar espaço confinado', 10, 220);
+    }
+
 
     // Salvar o PDF
     doc.save('levantamento.pdf');
