@@ -45,6 +45,15 @@ function gerarPDF() {
     var iluminacaoemerg = document.querySelector('input[name="iluminacaoemerg"]:checked').value;
 
     var extintores = document.querySelector('input[name="extintores"]:checked').value;
+   
+    var eletricidade = document.querySelector('input[name="eletricidade"]:checked').value;
+    var exposicaoeletricidade = document.querySelector('input[name="exposicaoeletricidade"]:checked').value;
+
+    var incendio = document.querySelector('input[name="incendio"]:checked').value;
+    var exposicaoincendio = document.querySelector('input[name="exposicaoincendio"]:checked').value;
+
+    var queda = document.querySelector('input[name="queda"]:checked').value;
+    var exposicaoqueda = document.querySelector('input[name="exposicaoqueda"]:checked').value;
 
     // Criar um novo objeto jsPDF
     var doc = new jsPDF();
@@ -216,6 +225,33 @@ function gerarPDF() {
         doc.text('Existe extintores', 10, 130);
     } else {
         doc.text('Não existe extintores', 10, 130);
+    }
+
+    //Eletricidade
+    if (eletricidade === 'eletricidadesim') {
+        doc.text('Considerar eletricidade', 10, 70);
+        doc.text('Exposição: ' + exposicaoeletricidade, 10, 75);
+        doc.text('Fonte geradora: ' + document.getElementById("fonteletricidade").value, 10, 80);
+    } else {
+        doc.text('Não considerar eletricidade', 10, 70);
+    }
+
+    //Incêndio
+    if (incendio === 'incendiosim') {
+        doc.text('Considerar risco de incêndio ou explosão', 10, 70);
+        doc.text('Exposição: ' + exposicaoincendio, 10, 75);
+        doc.text('Fonte geradora: ' + document.getElementById("fonteincendio").value, 10, 80);
+    } else {
+        doc.text('Não considerar risco de incêndio ou explosão', 10, 70);
+    }
+
+    //queda de materiais 
+    if (queda === 'quedasim') {
+        doc.text('Considerar queda de materiais', 10, 70);
+        doc.text('Exposição: ' + exposicaoqueda, 10, 75);
+        doc.text('Fonte geradora: ' + document.getElementById("fontequeda").value, 10, 80);
+    } else {
+        doc.text('Não considerar queda de materiais', 10, 70);
     }
 
     // Salvar o PDF
